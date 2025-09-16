@@ -13,7 +13,7 @@ jobs :
       - name: Setup Java JDK
         uses: actions/setup-java@v4.7.1
         with:
-          distribution: correto
+          distribution: corretto
           java-version: 21
 
       - name: Maven Build

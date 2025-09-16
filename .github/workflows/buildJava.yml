@@ -1,11 +1,10 @@
-name : Test
+name : Java CI with Maven - Test and package
 
 on: [pull_request]
 
 jobs :
-  JavaCI :
-    name: Maven
-    runs-on: ubuntu-latest
+  Java CI with Maven - Test and package:
+    name: Java CI with Maven - Test and package
 
     steps:
       - name: Checkout

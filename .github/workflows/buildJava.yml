@@ -3,7 +3,7 @@ name : Java CI with Maven - Test and package
 on: [pull_request]
 
 jobs :
-  JavaCI:
+  Java CI with Maven - Test and package:
     name: Java CI with Maven - Test and package
     runs-on: ubuntu-latest
     steps:

@@ -17,4 +17,4 @@ jobs :
           java-version: 21
 
       - name: Maven Build
-        run: mvn –B package
+        run: mvn -B package

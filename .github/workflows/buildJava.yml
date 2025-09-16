@@ -12,6 +12,9 @@ jobs :
 
       - name: Setup Java JDK
         uses: actions/setup-java@v4.7.1
+        with:
+          distribution: correto
+          java-version: 21
 
       - name: Maven Build
-        run: mvn –B package, elle lancera les tests avec JUnit
+        run: mvn –B package

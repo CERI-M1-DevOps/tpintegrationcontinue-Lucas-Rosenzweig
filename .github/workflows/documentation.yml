@@ -1,0 +1,16 @@
+name : Documentation
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  javadoc:
+    name: Documentation
+    runs-on: ubuntu-latest
+    steps:
+      - name : Javadoc
+        run: mvn -B javadoc::javadoc
+
+      - name: GitHub Pages action
+        uses: peaceiris/actions-gh-pages@v4.0.0

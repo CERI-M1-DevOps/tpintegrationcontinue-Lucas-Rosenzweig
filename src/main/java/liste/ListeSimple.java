@@ -4,15 +4,28 @@ public class ListeSimple {
     private long size;
     Noeud tete;
 
+    /**
+     * Retourne la taille de la liste
+     * @return long
+     */
     public long getSize() {
         return size;
     }
 
+    /**
+     * Ajoute une élement a la liste
+     * @param element élément a ajouter a la liste
+     */
     public void ajout(int element) {
         tete = new Noeud(element, tete);
         size++;
     }
 
+    /**
+     * Modifie le premier element d'une liste
+     * @param element element a modifier
+     * @param nouvelleValeur nouvelle valeur pour l'élément
+     */
     public void modifiePremier(Object element, Object nouvelleValeur) {
         Noeud courant = tete;
         while (courant != null && courant.getElement() != element)
@@ -21,6 +34,11 @@ public class ListeSimple {
             courant.setElement(nouvelleValeur);
     }
 
+    /**
+     * Remplace la valeur de tous les éléments avec une valeur X par une nouvelle valeur
+     * @param element Element a remplacer dans la liste
+     * @param nouvelleValeur Nouvelle Valeur
+     */
     public void modifieTous(Object element, Object nouvelleValeur) {
         Noeud courant = tete;
         while (courant != null) {
@@ -43,6 +61,10 @@ public class ListeSimple {
         return sb.toString();
     }
 
+    /**
+     * Supprime le premier element de la liste avec la même valeur que l'élément donné en entrée
+     * @param element Celui a supprimer
+     */
     public void supprimePremier(Object element) {
         if (tete != null) {
             if (tete.getElement() == element) {

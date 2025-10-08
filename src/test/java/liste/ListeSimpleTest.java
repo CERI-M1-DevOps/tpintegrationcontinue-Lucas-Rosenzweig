@@ -64,6 +64,21 @@ class ListeSimpleTest {
     }
 
     @Test
+    void modifiePremierListeVide(){
+        listeATester.modifiePremier(1, 2);
+        assertNull(listeATester.tete);
+    }
+
+    @Test
+    void modifiePremierListeElementAbscent(){
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        listeATester.modifiePremier(3, 4); //3 n'existe pas
+        assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString()); //La modification n'a pas eu lieue
+
+    }
+
+    @Test
     void modifieTous() {
         listeATester.ajout(1);
         listeATester.ajout(2);

@@ -9,8 +9,15 @@ jobs:
     name: Documentation
     runs-on: ubuntu-latest
     steps:
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4.7.1
+        with:
+          distribution: corretto
+          java-version: 21
+
       - name : Javadoc
         run: mvn -B javadoc::javadoc
+        working-directory:
 
       - name: GitHub Pages action
         uses: peaceiris/actions-gh-pages@v4.0.0

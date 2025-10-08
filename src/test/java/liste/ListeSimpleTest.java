@@ -64,6 +64,21 @@ class ListeSimpleTest {
     }
 
     @Test
+    void modifiePremierListeVide(){
+        listeATester.modifiePremier(1, 2);
+        assertNull(listeATester.tete);
+    }
+
+    @Test
+    void modifiePremierListeElementAbsent(){
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        listeATester.modifiePremier(3, 4); //3 n'existe pas
+        assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString()); //La modification n'a pas eu lieue
+
+    }
+
+    @Test
     void modifieTous() {
         listeATester.ajout(1);
         listeATester.ajout(2);
@@ -111,6 +126,14 @@ class ListeSimpleTest {
         listeATester.supprimePremier(1);
         assertEquals("ListeSimple(Noeud(4), Noeud(3), Noeud(2))", listeATester.toString());
         assertEquals(3, listeATester.getSize());
+    }
+
+    @Test
+    void supprimePremierElementAbsent() {
+        listeATester.ajout(2);
+        listeATester.ajout(1);
+        listeATester.supprimePremier(3);
+        assertEquals("ListeSimple(Noeud(1), Noeud(2))",listeATester.toString());
     }
 
     @Test
@@ -255,5 +278,15 @@ class ListeSimpleTest {
         listeATester.echanger(r1, r2);
         System.out.println(listeATester);
         assertEquals("ListeSimple(Noeud(4), Noeud(2), Noeud(3), Noeud(1), Noeud(5))", listeATester.toString());
+    }
+
+    @Test
+    void echangerUnNoeudAvecLuiMeme(){
+        listeATester.ajout(2);
+        listeATester.ajout(1);
+        Noeud r1 = listeATester.tete;
+        Noeud r2 = listeATester.tete;
+        listeATester.echanger(r1, r2);
+        assertEquals("ListeSimple(Noeud(1), Noeud(2))",listeATester.toString());
     }
 }

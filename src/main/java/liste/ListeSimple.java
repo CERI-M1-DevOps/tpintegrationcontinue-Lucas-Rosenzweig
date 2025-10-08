@@ -1,5 +1,8 @@
 package liste;
 
+/**
+ * Classe représentant une liste chaînée simple d'éléments.
+ */
 public class ListeSimple {
     private long size;
     Noeud tete;
@@ -48,6 +51,10 @@ public class ListeSimple {
         }
     }
 
+    /**
+     * Renvoie une représentation textuelle de la liste.
+     * @return Une chaîne de caractères représentant la liste
+     */
     public String toString() {
         StringBuilder sb = new StringBuilder("ListeSimple(");
         Noeud n = tete;
@@ -85,10 +92,20 @@ public class ListeSimple {
         }
     }
 
+    /**
+     * Supprime tous les éléments de la liste ayant la valeur spécifiée
+     * @param element L'élément à supprimer
+     */
     public void supprimeTous(int element) {
        tete = supprimeTousRecurs(element, tete);
     }
 
+    /**
+     * Méthode récursive auxiliaire pour supprimer tous les éléments
+     * @param element L'élément à supprimer
+     * @param tete La tête de la liste courante
+     * @return Le nouveau nœud tête après suppression
+     */
     public Noeud supprimeTousRecurs(Object element, Noeud tete) {
         if (tete != null) {
             Noeud suiteListe = supprimeTousRecurs(element, tete.getSuivant());

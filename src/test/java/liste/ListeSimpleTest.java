@@ -70,7 +70,7 @@ class ListeSimpleTest {
     }
 
     @Test
-    void modifiePremierListeElementAbscent(){
+    void modifiePremierListeElementAbsent(){
         listeATester.ajout(1);
         listeATester.ajout(2);
         listeATester.modifiePremier(3, 4); //3 n'existe pas
@@ -126,6 +126,14 @@ class ListeSimpleTest {
         listeATester.supprimePremier(1);
         assertEquals("ListeSimple(Noeud(4), Noeud(3), Noeud(2))", listeATester.toString());
         assertEquals(3, listeATester.getSize());
+    }
+
+    @Test
+    void supprimePremierElementAbsent() {
+        listeATester.ajout(2);
+        listeATester.ajout(1);
+        listeATester.supprimePremier(3);
+        assertEquals("ListeSimple(Noeud(1), Noeud(2))",listeATester.toString());
     }
 
     @Test

@@ -20,9 +20,6 @@ jobs:
           distribution: 'corretto'
           java-version: '21'
 
-      - name: ls
-        run: ls -a
-
       - name: Javadoc
         run: mvn -B javadoc:javadoc
         working-directory: ${{ github.workspace }}

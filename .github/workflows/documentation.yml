@@ -1,0 +1,33 @@
+name: Documentation
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  javadoc:
+    name: Documentation
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: ls
+        run: ls -a
+
+      - name: Javadoc
+        run: mvn -B javadoc:javadoc
+        working-directory: ${{ github.workspace }}
+
+      - name: GitHub Pages action
+        uses: peaceiris/actions-gh-pages@v4.0.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}

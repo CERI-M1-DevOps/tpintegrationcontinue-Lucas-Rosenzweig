@@ -1,4 +1,4 @@
-name : Documentation
+name: Documentation
 
 on:
   pull_request:
@@ -9,11 +9,20 @@ jobs:
     name: Documentation
     runs-on: ubuntu-latest
     steps:
-      - name : ls
-        run : ls -a
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name : Javadoc
-        run: mvn -B javadoc::javadoc
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: ls
+        run: ls -a
+
+      - name: Javadoc
+        run: mvn -B javadoc:javadoc
         working-directory: ${{ github.workspace }}
 
       - name: GitHub Pages action
